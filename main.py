@@ -34,6 +34,7 @@ visual.plot_histograms(loan, 'originallyScheduledPaymentAmount')
 
 #checking whether the default has clarityFraudID
 preprocess.clarity_id_checker(loan)
+loan_with_only_clarity_id=preprocess.read_csv('data/with_CF_ID.csv')
 
 
 #defaults=preprocess.default(payment)

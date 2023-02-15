@@ -27,8 +27,8 @@ def blank_filler(file):
 
 
 def clarity_id_checker(file):
-    filter_file=file[(file['default']==1) & (file['hasCF']==1)]
-    filter_file.to_csv("data/defaulters_with_CF_ID.csv",index=False)
+    filter_file=file[file['hasCF']==1]
+    filter_file.to_csv("data/with_CF_ID.csv",index=False)
 
 
 def summary_statistics(file):
