@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
 
 def bar_for_leadtype(file):
@@ -9,6 +10,7 @@ def bar_for_leadtype(file):
     plt.xlabel('Lead Type')
     plt.ylabel('Count')
     plt.show()
+    return file
 
 def relation_leadtype_default(file):
     leadType_counts = pd.crosstab(index=file['leadType'],columns=file['default'])
@@ -17,6 +19,7 @@ def relation_leadtype_default(file):
     plt.xlabel("Lead Type")
     plt.ylabel("Count")
     plt.show()
+    return file
 
 
 def plot_histograms(file, variable):
@@ -39,5 +42,47 @@ def plot_histograms(file, variable):
     fig.suptitle(f'Distribution of {variable} between Default and Non-default groups')
 
     plt.show()
+    return file
+
+
+
+def plot_payFrequency_loanAmount(file):
+     # Filter for default and non-default loans
+    default_file = file[file['default'] == 1]
+    nondefault_file = file[file['default'] == 0]
+    plt.figure()
+    plt.scatter(default_file['loanAmount'], default_file['leadCost'], c='r', label='Default')
+    plt.xlabel('Loan Amount')
+    plt.ylabel('lead Cost')
+    plt.legend()
+
+    # Create scatter plot of payFrequency against loanAmount for non-default loans
+    plt.figure()
+    plt.scatter(nondefault_file['loanAmount'], nondefault_file['leadCost'], c='b', label='Non-Default')
+    plt.xlabel('Loan Amount')
+    plt.ylabel('lead Cost')
+    plt.legend()
+
+    plt.show()
+    return file
+
+def heat_map_pay_frequency_APR(file,x_var, y_var):
+    g = sns.lmplot(x=x_var,y=y_var, hue='default',data=file, fit_reg=False)
+    g.set_titles("{col_name}")
+    g.add_legend()
+    plt.show()
+    return file
+   
+def scatter_plot(file,x_var,y_var):
+    default_mask = file['default'] == True
+    sns.scatterplot(x=x_var, y=y_var, hue=default_mask, data=file)
+    plt.show()
+    return file
+
+
+
+
+
+
 
 
