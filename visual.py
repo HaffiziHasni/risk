@@ -66,7 +66,7 @@ def plot_payFrequency_loanAmount(file):
     plt.show()
     return file
 
-def heat_map_pay_frequency_APR(file,x_var, y_var):
+def heat_map(file,x_var, y_var):
     g = sns.lmplot(x=x_var,y=y_var, hue='default',data=file, fit_reg=False)
     g.set_titles("{col_name}")
     g.add_legend()
