@@ -1,10 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import f1_score
-from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 from sklearn.experimental import enable_hist_gradient_boosting
 from sklearn.ensemble import HistGradientBoostingClassifier
@@ -40,9 +36,6 @@ def sort_importance(importance,x_train):
     feature_names = x_train.columns[feature_importances_sorted_index]
     return feature_importances_sorted, feature_names
 
-def train_decision_tree_top_20():
-
-    return True
 
 def plot_feature_importance(model, x_train, top_n=20):
     importance = model.get_booster().get_score(importance_type='weight')
