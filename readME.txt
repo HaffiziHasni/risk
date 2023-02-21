@@ -9,8 +9,6 @@ codes are written in python 3.11.1
 
 also, git version 2.39.0.windows.2
 
-repo is private (https://github.com/HaffiziHasni/risk) so hit me up if you need to clone 
-
 time Spent: ~72 hours
 
 also no difference in main.py and main.ipynb, i just got tired on running everything everytime i introduce a new module on main.py so i used main.ipynb but it turns out i have to reset
